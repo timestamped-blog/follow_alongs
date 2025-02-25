@@ -1,13 +1,17 @@
 
 # Setup -------------------------------------------------------------------
-
+library(jsonlite)
 library(tidyverse)
 library(tibble)
+
+main_project_directory <- paste0("F:/Everything/art/Early Xty/R/")
+objects_directory <- paste0(main_project_directory,"objects/")
+data_sets <- paste0(main_project_directory,"data/")
 
 # Read in the json file. It is a large file and will take awhile ~10mins
 # If you have not, you can download the latest JSON data here: 
 # https://atlantides.org/downloads/pleiades/json/
-pleiades_full_json <- read_json("...directory where the JSON file is stored...",
+pleiades_full_json <- read_json("F:/Everything/art/Early Xty/R/data/pleiades-places.json",
                        flatten = T,
                        simplifyDataFrame = T)
 
@@ -77,12 +81,16 @@ pleiades_locations_id_match <- tibble(
 # Save my sets to a single list for easy use in the future.
 
 # Create a blank list.
-pleiades_from_json <- list()
+pleiades_from_json_cleaned_tidied <- list()
 
 # Add to the list.
-pleiades_from_json[["pleiades_locations"]] <- pleiades_locations_id_match
-pleiades_from_json[["pleiades_references"]] <- pleiades_references
+pleiades_from_json_cleaned_tidied[["pleiades_locations"]] <- pleiades_locations_id_match
+pleiades_from_json_cleaned_tidied[["pleiades_references"]] <- pleiades_references
 
 # Save the list.
-saveRDS(pleiades_from_json, "...directory where to store the thing.rds")
+saveRDS(pleiades_from_json_cleaned_tidied, paste0(objects_directory, "pleiades_from_json_cleaned_tidied.rds"))
+
+
+
+
 
