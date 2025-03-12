@@ -5,7 +5,7 @@ library(tidyverse)
 library(tibble)
 library(fuzzyjoin)
 
-main_project_directory <- paste0("F:/Everything/art/Early Xty/R/")
+main_project_directory <- paste0("... setup main project directory ...")
 objects_directory <- paste0(main_project_directory,"objects/")
 data_sets <- paste0(main_project_directory,"data/")
 
@@ -146,3 +146,8 @@ no_matches <- locations_master %>%
     by = join_by(locationID == locationID)) %>% 
   filter(is.na(n_plei_records))
 
+# Save Point --------------------------------------------------------------
+
+saveRDS(locations_5km, paste0(objects_directory,"locations_5km.rds"))
+saveRDS(locations_master, paste0(objects_directory,"locations_master.rds"))
+saveRDS(no_matches, paste0(objects_directory,"no_matches.rds")) 
