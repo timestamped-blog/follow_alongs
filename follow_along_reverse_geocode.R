@@ -2,6 +2,7 @@
 # Setup -------------------------------------------------------------------
 library(tibble)
 library(tidyverse)
+library(tidygeocoder)
 
 test_locations <- tibble(
   location_id = c("9XFRII5PX9C1",	"01IGIIIBZKAT",	"046L3BBRTMG7",	"04MTL0M2YFGU",	"04TW230ZUDPN",	"054YS5GI5VC6",	"066W6FZESWTH",	"080S9STZ4P34",	"0888MXLQB4BA",	"08NJN72IRRDR"),
